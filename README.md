@@ -86,6 +86,21 @@ FILTERING
 ![Screen Shot 2025-03-10 at 3 13 15 PM](https://github.com/user-attachments/assets/ecaffa90-a72a-43af-b987-c59a47c41e8f)
 
 
+# Database
+Blog posts
+![Screen Shot 2025-03-10 at 3 29 16 PM](https://github.com/user-attachments/assets/c049a6a8-dd79-4e52-873d-6be8f536b1b2)
+
+
+comments 
+![Screen Shot 2025-03-10 at 3 29 37 PM](https://github.com/user-attachments/assets/a1b9f96c-6df0-48e1-9961-fb8480df1b27)
+
+migration tables
+![Screen Shot 2025-03-10 at 3 30 04 PM](https://github.com/user-attachments/assets/1452d040-8290-47bf-bf77-c7bc8a0b24a2)
+
+
+users
+![Screen Shot 2025-03-10 at 3 30 37 PM](https://github.com/user-attachments/assets/57d23f78-6966-493d-ade5-927974ad48f5)
+
 
 
 
