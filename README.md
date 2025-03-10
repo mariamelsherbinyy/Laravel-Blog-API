@@ -66,6 +66,24 @@ php artisan serve
 Registering admin
 ![Screen Shot 2025-03-10 at 2 41 01 PM](https://github.com/user-attachments/assets/5a4fa61d-d81e-4e20-af6c-ce9a2fbaea67)
 
+ logging in as admin
+![Screen Shot 2025-03-10 at 2 41 59 PM](https://github.com/user-attachments/assets/1e60579c-72d0-4893-8318-dd378109ef3d)
+
+Get posts
+![Screen Shot 2025-03-10 at 2 42 47 PM](https://github.com/user-attachments/assets/1a94519a-349e-45b5-b843-672132c6cea1)
+
+make a blog post
+![Screen Shot 2025-03-10 at 2 43 18 PM](https://github.com/user-attachments/assets/2a10ec3b-8cd0-463f-ae97-bf15c757b4ff)
+
+Logging in as author
+![Screen Shot 2025-03-10 at 2 44 03 PM](https://github.com/user-attachments/assets/467a39fc-b2ea-431e-b6d6-abd5fc0c80bd)
+
+
+delete a post
+![Screen Shot 2025-03-10 at 2 45 26 PM](https://github.com/user-attachments/assets/3e40c48d-a84b-4715-85a2-5a1927aa9745)
+
+FILTERING
+![Screen Shot 2025-03-10 at 3 13 15 PM](https://github.com/user-attachments/assets/ecaffa90-a72a-43af-b987-c59a47c41e8f)
 
 
 
