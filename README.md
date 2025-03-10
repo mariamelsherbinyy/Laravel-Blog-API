@@ -1,66 +1,168 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Laravel Blog API
 
-## About Laravel
+A RESTful Blog API built with Laravel, providing authentication, role-based access, and CRUD operations for blog posts and comments.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## **Installation & Setup**
+### 1 **Clone the Repository**
+```sh
+git clone https://github.com/mariamelsherbinyy/Laravel-Blog-API.git
+cd Laravel-Blog-API
+2️ Install Dependencies
+sh
+Copy
+Edit
+composer install
+3️ Set Up Environment
+Copy .env.example and create a new .env file:
+sh
+Copy
+Edit
+cp .env.example .env
+Open .env and configure database settings:
+makefile
+Copy
+Edit
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=blog_api
+DB_USERNAME=root
+DB_PASSWORD=
+4️⃣ Generate App Key
+sh
+Copy
+Edit
+php artisan key:generate
+🗄️ Database Setup
+5️⃣ Run Migrations & Seed Database
+sh
+Copy
+Edit
+php artisan migrate --seed
+This will create the necessary tables and seed sample data.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+🔐 Authentication
+This API uses Laravel Passport for authentication.
 
-## Learning Laravel
+6️⃣ Install & Set Up Laravel Passport
+sh
+Copy
+Edit
+php artisan passport:install
+Add Laravel\Passport\HasApiTokens; to User model:
+php
+Copy
+Edit
+use Laravel\Passport\HasApiTokens;
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+class User extends Authenticatable
+{
+    use HasApiTokens, Notifiable;
+}
+Run:
+sh
+Copy
+Edit
+php artisan migrate
+7️⃣ Run Database Seeder
+sh
+Copy
+Edit
+php artisan db:seed
+🚀 Running the API
+8️⃣ Start the Laravel Server
+sh
+Copy
+Edit
+php artisan serve
+The API will be available at http://127.0.0.1:8000/
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+🔥 API Endpoints
+Authentication
+Method	Endpoint	Description
+POST	/api/register	Register a new user
+POST	/api/login	Login and get an access token
+POST	/api/logout	Logout the user
+Blog Posts
+Method	Endpoint	Description
+GET	/api/posts	Get all blog posts (paginated)
+GET	/api/posts/{id}	Get a single blog post by ID
+POST	/api/posts	Create a new blog post (Authenticated users)
+PUT	/api/posts/{id}	Update a blog post (Only author or admin)
+DELETE	/api/posts/{id}	Delete a blog post (Only author or admin)
+Comments
+Method	Endpoint	Description
+POST	/api/posts/{id}/comments	Add a comment to a post
+🛠 Testing the API with Postman
+1️⃣ Register a New User
+URL: POST http://127.0.0.1:8000/api/register
+Body (JSON):
+json
+Copy
+Edit
+{
+  "name": "John Doe",
+  "email": "johndoe@example.com",
+  "password": "password123",
+  "role": "author"
+}
+2️⃣ Get an Access Token (Login)
+URL: POST http://127.0.0.1:8000/api/login
+Body (JSON):
+json
+Copy
+Edit
+{
+  "email": "johndoe@example.com",
+  "password": "password123"
+}
+Response:
+json
+Copy
+Edit
+{
+  "token": "your-access-token-here"
+}
+3️⃣ Use the Token for Authenticated Requests
+Go to Postman > Headers and add:
+makefile
+Copy
+Edit
+Key: Authorization
+Value: Bearer your-access-token-here
+🛠 Troubleshooting
+❓ "Could not open input file: artisan"
+Run:
+sh
+Copy
+Edit
+composer dump-autoload
+❓ "No application encryption key has been specified."
+Run:
+sh
+Copy
+Edit
+php artisan key:generate
+❓ "SQLSTATE[HY000]: No such table"
+Run:
+sh
+Copy
+Edit
+php artisan migrate --seed
+🎯 Contributing
+Feel free to fork and improve this project. Create a pull request for any major changes.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+📄 License
+This project is licensed under the MIT License.
 
-## Laravel Sponsors
+🎉 Happy Coding! 🚀
+yaml
+Copy
+Edit
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+---
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
