@@ -8,6 +8,7 @@ Setup Instructions
 # 1 Prerequisites
 Ensure you have the following installed:
 
+Install XAMPP
 PHP 8.x
 Composer
 Laravel 10+
@@ -18,10 +19,16 @@ Postman (for testing APIs)
 git clone https://github.com/mariamelsherbinyy/Laravel-Blog-API.git
 cd Laravel-Blog-API
 
-# 3 Install Dependencies
+# 3 Move the Project to the XAMPP Directory
+For Windows
+C:\xampp\htdocs\Laravel-Blog-API
+For Linux/Mac
+/opt/lampp/htdocs/Laravel-Blog-API  (For Linux/Mac)
+
+# 4 Install Dependencies
 composer install
 
-# 4 Set Up the Environment (if needed)
+# 5 Set Up the Environment (if needed)
 Copy the .env.example file to .env and update the database credentials.
 cp .env.example .env
 
@@ -33,21 +40,31 @@ DB_DATABASE=blog_api
 DB_USERNAME=root
 DB_PASSWORD=
 
-# 5 Make applcation key
+
+# 6 Start XAMPP’s MySQL Server
+Open XAMPP Control Panel.
+Click Start next to MySQL.
+Open phpMyAdmin by visiting:
+http://localhost/phpmyadmin
+Create a new database named blog_api.
+
+# 7 Make applcation key
 php artisan key:generate
 
-# 6 Run Migrations & Seeders
+# 8 Run Migrations & Seeders
 php artisan migrate --seed
 
-# 7 Generate JWT Secret Key
+# 9 Generate JWT Secret Key
 php artisan jwt:secret
 
-# 8 Start the Development Server
+# 10 Start the Development Server
 php artisan serve
 
 
 # Testing using Postman
 
+Registering admin
+![Screen Shot 2025-03-10 at 2 41 01 PM](https://github.com/user-attachments/assets/5a4fa61d-d81e-4e20-af6c-ce9a2fbaea67)
 
 
 
